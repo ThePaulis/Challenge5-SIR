@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro API - Sistema de Gerenciamento de Livros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 16px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Livro API - Sistema de Gerenciamento de Livros</h1>
+    <p>Documentação da API para gerenciamento de livros</p>
+</header>
+
+<div class="container">
+    <h2>Descrição</h2>
+    <p>Este projeto é uma API simples desenvolvida utilizando <strong>Node.js</strong> e <strong>Express</strong> para
+        gerenciamento de livros. Ele permite realizar operações CRUD (Criar, Ler, Atualizar e Excluir) para uma
+        coleção de livros, bem como a busca de livros por ID.</p>
+    <p>Além disso, a interface web permite adicionar, procurar, editar e excluir livros, interagindo com a API.</p>
+
+    <h2>Autor</h2>
+    <ul>
+        <li><strong>Nome do autor:</strong> Joao Paulo Oliveira Silva</li>
+        <li><strong>Email:</strong> joaopaulosilva@ipvc.pt</li>
+        <li><strong>Numero:</strong> 26909</li>
+
+    </ul>
+
+    <h2>Tecnologias Usadas</h2>
+    <ul>
+        <li><strong>Node.js</strong>: Ambiente de execução para JavaScript.</li>
+        <li><strong>Express.js</strong>: Framework para construção da API.</li>
+        <li><strong>lowdb</strong>: Banco de dados simples baseado em JSON.</li>
+        <li><strong>Cors</strong>: Middleware para permitir requisições de diferentes origens (CORS).</li>
+        <li><strong>HTML/CSS/JavaScript</strong>: Para o front-end interativo.</li>
+    </ul>
+
+    <h2>Deploy</h2>
+    <p>Este projeto está disponível para acesso na seguinte URL:</p>
+    <ul>
+        <li><strong>URL do deploy:</strong> <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> (localmente)</li>
+    </ul>
+
+    <h2>Dados Utilizados</h2>
+    <p>O sistema utiliza um banco de dados simples em formato JSON armazenado localmente, contendo informações de
+        livros.</p>
+
+    <h3>Estrutura dos dados</h3>
+    <p>Cada livro possui os seguintes campos:</p>
+    <ul>
+        <li><strong>id</strong>: Identificador único do livro (número inteiro).</li>
+        <li><strong>Titulo</strong>: Título do livro.</li>
+        <li><strong>Ano_Lancamento</strong>: Ano de lançamento do livro (string).</li>
+        <li><strong>Edicao</strong>: Edição do livro (string).</li>
+        <li><strong>Linguagem</strong>: Idioma do livro (string).</li>
+    </ul>
+
+    <p>Exemplo de dados:</p>
+    <div class="code">
+        {
+        "Livros": [
+        {
+        "id": "1",
+        "Titulo": "Lusiadas",
+        "Ano_Lancamento": "1572",
+        "Edicao": "1",
+        "Linguagem": "PT"
+        }
+        ]
+        }
+    </div>
+
+    <h2>Rotas Implementadas</h2>
+    <p>A API fornece as seguintes rotas para interagir com os dados de livros:</p>
+
+    <h3>1. GET /Livros</h3>
+    <p>Retorna a lista de todos os livros.</p>
+    <div class="code">
+        [
+        {
+        "id": "1",
+        "Titulo": "Lusiadas",
+        "Ano_Lancamento": "1572",
+        "Edicao": "1",
+        "Linguagem": "PT"
+        }
+        ]
+    </div>
+
+    <h3>2. GET /Livros/:id</h3>
+    <p>Retorna os dados de um livro específico, baseado no id fornecido.</p>
+    <div class="code">
+        [
+        {
+        "id": "1",
+        "Titulo": "Lusiadas",
+        "Ano_Lancamento": "1572",
+        "Edicao": "1",
+        "Linguagem": "PT"
+        }
+        ]
+    </div>
+
+    <h3>3. POST /Livros/Create</h3>
+    <p>Cria um novo livro no sistema.</p>
+    <div class="code">
+        {
+        "Titulo": "Dom Quixote",
+        "Ano_Lancamento": "1605",
+        "Edicao": "1",
+        "Linguagem": "PT"
+        }
+    </div>
+    <p>Exemplo de resposta:</p>
+    <div class="code">
+        {
+        "message": "Livro criado com sucesso",
+        "livro": {
+        "id": "2",
+        "Titulo": "Dom Quixote",
+        "Ano_Lancamento": "1605",
+        "Edicao": "1",
+        "Linguagem": "PT"
+        }
+        }
+    </div>
+
+    <h3>4. PUT /Livros/Update/</h3>
+    <p>Atualiza os dados de um livro existente, baseado no id.</p>
+    <div class="code">
+        {
+        "Titulo": "Dom Quixote",
+        "Ano_Lancamento": "1605",
+        "Edicao": "2",
+        "Linguagem": "ES"
+        }
+    </div>
+
+    <h3>5. DELETE /Livros/Delete/</h3>
+    <p>Exclui um livro baseado no id.</p>
+    <div class="code">
+        {
+        "message": "Livro removido com sucesso",
+        "livro": {
+        "id": "2",
+        "Titulo": "Dom Quixote",
+        "Ano_Lancamento": "1605",
+        "Edicao": "1",
+        "Linguagem": "PT"
+        }
+        }
+    </div>
+
+    <h2>Front-end</h2>
+    <p>O projeto inclui uma interface web simples com as seguintes funcionalidades:</p>
+    <ul>
+        <li><strong>Adicionar livro:</strong> Preencha os campos de título, ano de lançamento, edição e idioma e clique em "Add Book" para enviar os dados ao servidor.</li>
+        <li><strong>Buscar livro por ID:</strong> Insira um ID no campo de pesquisa e clique em "Search" para buscar o livro correspondente.</li>
+        <li><strong>Alterar dados do livro:</strong> Ao clicar em "Alterar", o livro se torna editável, permitindo que você altere suas informações.</li>
+        <li><strong>Excluir livro:</strong> Ao clicar em "Deletar", o livro será removido da lista.</li>
+    </ul>
+
+    <h2>Instruções para Execução</h2>
+    <p>Clone o repositório:</p>
+    <div class="code">
+        git clone https://github.com/seu-usuario/livros-api.git
+    </div>
+
+    <p>Navegue até o diretório do projeto:</p>
+    <div class="code">
+        cd livros-api
+    </div>
+
+    <p>Instale as dependências:</p>
+    <div class="code">
+        npm install
+    </div>
+
+    <p>Inicie o servidor:</p>
+    <div class="code">
+        npm start
+    </div>
+
+    <p>Acesse a aplicação no navegador:</p>
+    <div class="code">
+        URL local: http://localhost:3000
+    </div>
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable List</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<button onclick="aboutPage()"> About me </button>
+<button onclick="DocPage()"> Documentation </button>
+
+<h2>Livros</h2>
+
+<table id="itemsTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Ano_Lancamento</th>
+        <th>Edicao</th>
+        <th>Linguagem</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td></td>
+        <td><input id="Titulo" type="text" placeholder="Titulo"></td>
+        <td><input id="Ano_Lancamento" type="text" placeholder="Ano_Lancamento"></td>
+        <td><input id="Edicao" type="text" placeholder="Edicao"></td>
+        <td><input id="Linguagem" type="text" placeholder="Linguagem"></td>
+        <td><button onclick="CreateLivro()">Add Book</button></td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Procurar Livro</h2>
+
+<table id="LivroProcurarId">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Ano_Lancamento</th>
+        <th>Edicao</th>
+        <th>Linguagem</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    </tr>
+    </tbody>
+    <input type="text" id="ProcurarId">
+    <Button id="SearchByIdButton" onclick="GetLivrosById()"> Search</Button>
+</table>
+
+<h2>Lista de Livros</h2>
+<table id="Results">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Ano_Lancamento</th>
+        <th>Edicao</th>
+        <th>Linguagem</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>

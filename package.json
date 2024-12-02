@@ -1,0 +1,16 @@
+{
+  "name": "Exc2",
+  "version": "1.0.0",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "lowdb": "^7.0.1",
+    "mongoose": "^8.8.3"
+  },
+  "main": "Routes-Setups.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Routes-Setups.js"
+  }
+}
