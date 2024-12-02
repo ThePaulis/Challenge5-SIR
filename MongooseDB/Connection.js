@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 mongoose.set('strictQuery', false);
 
-const MongoDB = "mongodb+srv://joaopaulosilva:Jpos2002@cluster0.vrhc1wu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const MongoDB = process.env.MONGODB_URI;
 
 async function Connection() {
     try {
